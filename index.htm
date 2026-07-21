@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Matrimonio Martina & Riccardo</title>
+	<meta name="description" content="Tutte le informazioni del matrimonio di Martina e Riccardo." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+	<style>
+		:root {
+			--bg: #f5f8ff;
+			--bg-soft: #eef5ff;
+			--card: rgba(255, 255, 255, 0.82);
+			--ink: #0f172a;
+			--ink-soft: #475569;
+			--accent: #0f766e;
+			--accent-2: #14b8a6;
+			--line: rgba(15, 23, 42, 0.12);
+			--ok: #0b8f6a;
+			--shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+			--radius-xl: 30px;
+			--radius-lg: 20px;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			min-height: 100%;
+		}
+
+		body {
+			font-family: "Manrope", sans-serif;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at 5% 15%, rgba(20, 184, 166, 0.19), transparent 38%),
+				radial-gradient(circle at 92% 14%, rgba(56, 189, 248, 0.2), transparent 34%),
+				linear-gradient(150deg, var(--bg), #f8fbff 44%, var(--bg-soft));
+			line-height: 1.45;
+			overflow-x: hidden;
+		}
+
+		.grain {
+			position: fixed;
+			inset: 0;
+			pointer-events: none;
+			opacity: 0.12;
+			z-index: -1;
+			background-image: radial-gradient(rgba(0, 0, 0, 0.05) 0.5px, transparent 0.5px);
+			background-size: 4px 4px;
+			mix-blend-mode: multiply;
+		}
+
+		.container {
+			width: min(980px, calc(100% - 2rem));
+			margin: 0 auto;
+			padding: 1.2rem 0 3rem;
+		}
+
+		.hero {
+			margin-top: 0.8rem;
+			border: 1px solid var(--line);
+			border-radius: var(--radius-xl);
+			background: var(--card);
+			backdrop-filter: blur(12px);
+			box-shadow: var(--shadow);
+			padding: clamp(1.5rem, 4vw, 3rem);
+			position: relative;
+			overflow: hidden;
+			animation: rise 0.8s ease-out both;
+		}
+
+		.hero-photo {
+			margin-top: 1rem;
+			height: clamp(220px, 38vw, 340px);
+			border-radius: 20px;
+			border: 1px solid var(--line);
+			background:
+				linear-gradient(135deg, rgba(15, 118, 110, 0.2), rgba(56, 189, 248, 0.15)),
+				url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+			position: relative;
+			overflow: hidden;
+			box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
+		}
+
+		.hero-photo::after {
+			content: "Sostituisci questa foto con il vostro scatto";
+			position: absolute;
+			left: 0.8rem;
+			bottom: 0.8rem;
+			padding: 0.35rem 0.65rem;
+			border-radius: 999px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			letter-spacing: 0.03em;
+			color: #ffffff;
+			background: rgba(15, 23, 42, 0.48);
+		}
+
+		.hero::before,
+		.hero::after {
+			content: "";
+			position: absolute;
+			width: 260px;
+			height: 260px;
+			border-radius: 50%;
+			filter: blur(10px);
+			z-index: -1;
+		}
+
+		.hero::before {
+			right: -90px;
+			top: -120px;
+			background: rgba(20, 184, 166, 0.2);
+		}
+
+		.hero::after {
+			left: -120px;
+			bottom: -140px;
+			background: rgba(56, 189, 248, 0.16);
+		}
+
+		.date-tag {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			border: 1px solid rgba(15, 118, 110, 0.3);
+			border-radius: 999px;
+			padding: 0.38rem 0.9rem;
+			background: rgba(255, 255, 255, 0.75);
+			color: var(--accent);
+			font-weight: 800;
+			letter-spacing: 0.04em;
+			font-size: 0.86rem;
+			text-transform: uppercase;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-family: "Sora", sans-serif;
+			line-height: 1.1;
+			letter-spacing: -0.01em;
+		}
+
+		h1 {
+			font-size: clamp(2.1rem, 7vw, 4.6rem);
+			margin-top: 0.85rem;
+			font-weight: 800;
+		}
+
+		.subtitle {
+			margin-top: 0.8rem;
+			color: var(--ink-soft);
+			max-width: 58ch;
+			font-size: clamp(1rem, 2.6vw, 1.2rem);
+		}
+
+		.countdown {
+			margin-top: 1rem;
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 0.6rem;
+			max-width: 420px;
+		}
+
+		.countdown-box {
+			border: 1px solid rgba(20, 184, 166, 0.3);
+			border-radius: 14px;
+			background: rgba(255, 255, 255, 0.8);
+			padding: 0.55rem 0.4rem;
+			text-align: center;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+		}
+
+		.countdown-value {
+			display: block;
+			font-weight: 800;
+			font-size: clamp(1.05rem, 3.7vw, 1.7rem);
+			color: var(--accent);
+			line-height: 1;
+		}
+
+		.countdown-label {
+			display: block;
+			font-size: 0.76rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			color: var(--ink-soft);
+			margin-top: 0.2rem;
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: repeat(12, minmax(0, 1fr));
+			gap: 0.95rem;
+			margin-top: 1rem;
+		}
+
+		.card {
+			grid-column: span 12;
+			border: 1px solid var(--line);
+			border-radius: var(--radius-lg);
+			background: rgba(255, 255, 255, 0.88);
+			box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+			padding: 1.2rem;
+			animation: rise 0.7s ease both;
+			animation-delay: calc(var(--stagger, 0) * 120ms);
+		}
+
+		.card h2 {
+			font-size: clamp(1.55rem, 4vw, 2.2rem);
+			margin-bottom: 0.35rem;
+		}
+
+		.card p,
+		.card li {
+			color: var(--ink-soft);
+		}
+
+		.timeline {
+			list-style: none;
+			margin-top: 0.7rem;
+			display: grid;
+			gap: 0.55rem;
+		}
+
+		.timeline li {
+			display: grid;
+			grid-template-columns: 92px 1fr;
+			gap: 0.7rem;
+			border-bottom: 1px dashed rgba(15, 118, 110, 0.25);
+			padding-bottom: 0.5rem;
+		}
+
+		.timeline time {
+			font-weight: 700;
+			color: var(--accent);
+		}
+
+		.actions {
+			margin-top: 0.95rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.65rem;
+		}
+
+		.btn {
+			text-decoration: none;
+			border-radius: 14px;
+			padding: 0.6rem 1rem;
+			font-weight: 800;
+			font-size: 0.95rem;
+			border: 1px solid transparent;
+			transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.35rem;
+		}
+
+		.btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16);
+		}
+
+		.btn.primary {
+			background: linear-gradient(135deg, var(--accent), var(--accent-2));
+			color: #fff;
+		}
+
+		.btn.ghost {
+			border-color: rgba(15, 118, 110, 0.36);
+			color: var(--accent);
+			background: rgba(255, 255, 255, 0.72);
+		}
+
+		.small {
+			font-size: 0.92rem;
+		}
+
+		.muted {
+			color: var(--ink-soft);
+		}
+
+		.notice {
+			margin-top: 0.6rem;
+			border-left: 3px solid rgba(15, 118, 110, 0.45);
+			padding-left: 0.7rem;
+			font-size: 0.95rem;
+		}
+
+		.iban-box {
+			margin-top: 0.75rem;
+			padding: 0.75rem 0.85rem;
+			border-radius: 12px;
+			border: 1px dashed rgba(15, 118, 110, 0.4);
+			background: rgba(20, 184, 166, 0.08);
+			font-size: 0.95rem;
+			font-weight: 700;
+			color: var(--ink);
+			word-break: break-all;
+		}
+
+		.carousel {
+			margin-top: 0.85rem;
+			position: relative;
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--line);
+			background: #dbeafe;
+		}
+
+		.carousel-track {
+			display: flex;
+			transition: transform 0.45s ease;
+			will-change: transform;
+		}
+
+		.carousel-slide {
+			min-width: 100%;
+			height: clamp(190px, 28vw, 250px);
+			background-size: cover;
+			background-position: center;
+		}
+
+		.carousel-slide::after {
+			content: "";
+			display: block;
+			height: 100%;
+			background: linear-gradient(to top, rgba(15, 23, 42, 0.22), rgba(15, 23, 42, 0.05));
+		}
+
+		.carousel-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 34px;
+			height: 34px;
+			border: 1px solid rgba(255, 255, 255, 0.35);
+			border-radius: 999px;
+			background: rgba(15, 23, 42, 0.38);
+			color: #fff;
+			font-size: 1.05rem;
+			font-weight: 800;
+			cursor: pointer;
+			line-height: 1;
+		}
+
+		.carousel-btn.prev {
+			left: 0.55rem;
+		}
+
+		.carousel-btn.next {
+			right: 0.55rem;
+		}
+
+		.carousel-dots {
+			position: absolute;
+			left: 50%;
+			bottom: 0.6rem;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 0.4rem;
+		}
+
+		.carousel-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.55);
+			border: none;
+			padding: 0;
+			cursor: pointer;
+		}
+
+		.carousel-dot.active {
+			background: #ffffff;
+			width: 20px;
+		}
+
+		.footer {
+			text-align: center;
+			margin-top: 1.3rem;
+			color: var(--ink-soft);
+			font-size: 0.9rem;
+		}
+
+		.hidden {
+			display: none !important;
+		}
+
+		@media (min-width: 760px) {
+			.card.span-6 {
+				grid-column: span 6;
+			}
+
+			.card.span-4 {
+				grid-column: span 4;
+			}
+
+			.card.span-8 {
+				grid-column: span 8;
+			}
+		}
+
+		@media (max-width: 520px) {
+			.countdown {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@keyframes rise {
+			from {
+				opacity: 0;
+				transform: translateY(12px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="grain"></div>
+
+	<main class="container">
+		<section class="hero">
+			<span class="date-tag">2 ottobre 2026</span>
+			<h1>MARTINA &amp; RICCARDO</h1>
+			<p class="subtitle">
+				Siamo felici di condividere con te tutte le informazioni utili per il nostro matrimonio.
+			</p>
+			<div class="countdown" aria-label="Conto alla rovescia al matrimonio">
+				<div class="countdown-box">
+					<span id="cdDays" class="countdown-value">0</span>
+					<span class="countdown-label">Giorni</span>
+				</div>
+				<div class="countdown-box">
+					<span id="cdHours" class="countdown-value">0</span>
+					<span class="countdown-label">Ore</span>
+				</div>
+				<div class="countdown-box">
+					<span id="cdMinutes" class="countdown-value">0</span>
+					<span class="countdown-label">Minuti</span>
+				</div>
+			</div>
+			<div class="hero-photo" role="img" aria-label="Foto iniziale della coppia"></div>
+		</section>
+
+		<section class="cards">
+			<article class="card span-8" style="--stagger: 1;">
+				<h2>Programma</h2>
+				<p class="small muted">Aggiorna gli orari quando vuoi, il sito si aggiorna subito per tutti.</p>
+				<ul id="timelineFull" class="timeline">
+					<li>
+						<time>15:30</time>
+						<div>Cerimonia</div>
+					</li>
+					<li>
+						<time>17:30</time>
+						<div>Aperitivo di benvenuto</div>
+					</li>
+					<li>
+						<time>20:00</time>
+						<div>Cena e festa</div>
+					</li>
+					<li>
+						<time>23:00</time>
+						<div>Taglio torta</div>
+					</li>
+				</ul>
+				<ul id="timelineCake" class="timeline hidden">
+					<li>
+						<time>22:30</time>
+						<div>Arrivo ospiti per la torta</div>
+					</li>
+					<li>
+						<time>23:00</time>
+						<div>Taglio torta e brindisi</div>
+					</li>
+				</ul>
+			</article>
+
+			<article class="card span-4" style="--stagger: 2;">
+				<h2>Conferma Presenza</h2>
+				<p class="small">Ti chiediamo una conferma entro il <strong>31 agosto 2026</strong>.</p>
+				<div class="actions">
+					<a class="btn primary" href="https://wa.me/393491234567?text=Ciao%2C%20confermo%20la%20mia%20presenza%20al%20matrimonio%20del%202%20ottobre%202026!" target="_blank" rel="noopener">Conferma su WhatsApp</a>
+				</div>
+				<p class="notice">Puoi aggiungere qui una nota per allergie, intolleranze o esigenze speciali.</p>
+			</article>
+
+			<article class="card span-6" style="--stagger: 3;">
+				<h2>Luoghi</h2>
+				<p class="small muted" id="placesText">Cerimonia e ricevimento.</p>
+				<div id="fullPlaces">
+					<h3>Cerimonia - ore 11:00</h3>
+					<p>Villa Oliva, via Volta 16 - Cassano Magnago</p>
+					<div class="actions">
+						<a class="btn ghost" href="https://maps.google.com/?q=Villa+Oliva+via+Volta+16+21012+Cassano+Magnago" target="_blank" rel="noopener">Apri cerimonia su Maps</a>
+					</div>
+					<h3 style="margin-top: 0.8rem;">Ricevimento - ore 12:00</h3>
+					<p>Il Podere di Binse, via Balzarine 204 Fagnano Olona</p>
+					<div class="actions">
+						<a class="btn ghost" href="https://maps.google.com/?q=Il+Podere+di+Binse+via+Balzarine+204+Fagnano+Olona" target="_blank" rel="noopener">Apri ricevimento su Maps</a>
+					</div>
+				</div>
+				<div id="cakePlace" class="hidden">
+					<h3>Taglio Torta - ore 17.30</h3>
+					<p>Il Podere di Binse, via Balzarine 204 Fagnano Olona</p>
+					<div class="actions">
+						<a class="btn ghost" href="https://maps.google.com/?q=Il+Podere+di+Binse+via+Balzarine+204+Fagnano+Olona" target="_blank" rel="noopener">Apri location su Maps</a>
+					</div>
+				</div>
+			</article>
+
+			<article class="card span-6" style="--stagger: 4;">
+				<h2>Informazioni Utili</h2>
+				<p class="small">Parcheggio: disponibile in loco.</p>
+				<p class="small">Bambini: benvenuti.</p>
+				<p class="small">Lista regalo: verrà comunicata a breve.</p>
+				<p class="notice">
+					Personalizza questa sezione con tutte le indicazioni pratiche per gli ospiti.
+				</p>
+			</article>
+
+			<article class="card span-6" style="--stagger: 5;">
+				<h2>Viaggio Di Nozze</h2>
+				<p class="small">La nostra luna di miele inizierà pochi giorni dopo il matrimonio.</p>
+				<p class="small">Un piccolo assaggio della meta che abbiamo scelto per iniziare la nostra avventura insieme.</p>
+				<div class="carousel" id="honeymoonCarousel" aria-label="Carousel foto viaggio di nozze">
+					<div class="carousel-track" id="honeymoonTrack">
+						<div class="carousel-slide" style='background-image: url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80")'></div>
+						<div class="carousel-slide" style='background-image: url("https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80")'></div>
+						<div class="carousel-slide" style='background-image: url("https://images.unsplash.com/photo-1526481280695-3c4693f8f4d1?auto=format&fit=crop&w=1200&q=80")'></div>
+					</div>
+					<button class="carousel-btn prev" id="carouselPrev" type="button" aria-label="Foto precedente">&#10094;</button>
+					<button class="carousel-btn next" id="carouselNext" type="button" aria-label="Foto successiva">&#10095;</button>
+					<div class="carousel-dots">
+						<button class="carousel-dot active" type="button" data-slide="0" aria-label="Vai alla foto 1"></button>
+						<button class="carousel-dot" type="button" data-slide="1" aria-label="Vai alla foto 2"></button>
+						<button class="carousel-dot" type="button" data-slide="2" aria-label="Vai alla foto 3"></button>
+					</div>
+				</div>
+				<p class="notice">Possiamo cambiare queste 3 foto con immagini reali del vostro viaggio appena le hai.</p>
+			</article>
+
+			<article class="card span-6" style="--stagger: 6;">
+				<h2>Lista Viaggio</h2>
+				<p class="small">Se desideri regalarci un contributo per il nostro viaggio di nozze:</p>
+				<div class="iban-box">IBAN: IT24U0538750110000003926514</div>
+				<p class="small" style="margin-top: 0.6rem;">Intestato a: MARTINA RICCARDO</p>
+			</article>
+		</section>
+
+		<p class="footer">Con amore, Martina e Riccardo</p>
+	</main>
+
+	<script>
+		(function () {
+			var params = new URLSearchParams(window.location.search);
+			var inviteType = (params.get("invito") || "completo").toLowerCase();
+			var isCake = inviteType === "torta";
+
+			var timelineFull = document.getElementById("timelineFull");
+			var timelineCake = document.getElementById("timelineCake");
+			var placesText = document.getElementById("placesText");
+			var fullPlaces = document.getElementById("fullPlaces");
+			var cakePlace = document.getElementById("cakePlace");
+			var cdDays = document.getElementById("cdDays");
+			var cdHours = document.getElementById("cdHours");
+			var cdMinutes = document.getElementById("cdMinutes");
+			var honeymoonTrack = document.getElementById("honeymoonTrack");
+			var carouselPrev = document.getElementById("carouselPrev");
+			var carouselNext = document.getElementById("carouselNext");
+			var carouselDots = document.querySelectorAll(".carousel-dot");
+
+			var weddingDate = new Date("2026-10-02T00:00:00+02:00");
+
+			function pad(value) {
+				return String(value).padStart(2, "0");
+			}
+
+			function updateCountdown() {
+				var now = new Date();
+				var diff = weddingDate.getTime() - now.getTime();
+
+				if (diff <= 0) {
+					cdDays.textContent = "00";
+					cdHours.textContent = "00";
+					cdMinutes.textContent = "00";
+					return;
+				}
+
+				var totalSeconds = Math.floor(diff / 1000);
+				var days = Math.floor(totalSeconds / 86400);
+				var hours = Math.floor((totalSeconds % 86400) / 3600);
+				var minutes = Math.floor((totalSeconds % 3600) / 60);
+
+				cdDays.textContent = String(days);
+				cdHours.textContent = pad(hours);
+				cdMinutes.textContent = pad(minutes);
+			}
+
+			updateCountdown();
+			setInterval(updateCountdown, 1000);
+
+			var slideIndex = 0;
+			var totalSlides = 3;
+
+			function renderCarousel() {
+				honeymoonTrack.style.transform = "translateX(-" + slideIndex * 100 + "%)";
+				for (var i = 0; i < carouselDots.length; i++) {
+					if (i === slideIndex) {
+						carouselDots[i].classList.add("active");
+					} else {
+						carouselDots[i].classList.remove("active");
+					}
+				}
+			}
+
+			function goToSlide(index) {
+				slideIndex = (index + totalSlides) % totalSlides;
+				renderCarousel();
+			}
+
+			carouselPrev.addEventListener("click", function () {
+				goToSlide(slideIndex - 1);
+			});
+
+			carouselNext.addEventListener("click", function () {
+				goToSlide(slideIndex + 1);
+			});
+
+			for (var dotIndex = 0; dotIndex < carouselDots.length; dotIndex++) {
+				carouselDots[dotIndex].addEventListener("click", function (event) {
+					var target = event.currentTarget;
+					var nextIndex = Number(target.getAttribute("data-slide"));
+					goToSlide(nextIndex);
+				});
+			}
+
+			setInterval(function () {
+				goToSlide(slideIndex + 1);
+			}, 4500);
+
+			if (isCake) {
+				timelineFull.classList.add("hidden");
+				timelineCake.classList.remove("hidden");
+				fullPlaces.classList.add("hidden");
+				cakePlace.classList.remove("hidden");
+				placesText.textContent = "Indicazioni per il momento del taglio torta.";
+			}
+		})();
+	</script>
+</body>
+</html>
