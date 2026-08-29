@@ -83,14 +83,15 @@
 			border: 1px solid var(--line);
 			background:
 				linear-gradient(135deg, rgba(15, 118, 110, 0.2), rgba(56, 189, 248, 0.15)),
-				url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+				/*url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;*/
+				url("martinaericcardo.jpg") center / cover no-repeat;
 			position: relative;
 			overflow: hidden;
 			box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
 		}
 
 		.hero-photo::after {
-			content: "Sostituisci questa foto con il vostro scatto";
+			/*content: "Sostituisci questa foto con il vostro scatto";*/
 			position: absolute;
 			left: 0.8rem;
 			bottom: 0.8rem;
@@ -158,7 +159,7 @@
 		.subtitle {
 			margin-top: 0.8rem;
 			color: var(--ink-soft);
-			max-width: 58ch;
+			/*max-width: 58ch;*/
 			font-size: clamp(1rem, 2.6vw, 1.2rem);
 		}
 
@@ -453,60 +454,56 @@
 					<span class="countdown-label">Minuti</span>
 				</div>
 			</div>
-			<div class="hero-photo" role="img" aria-label="Foto iniziale della coppia"></div>
+			<div class="hero-photo" role="img" aria-label="Martina e Riccardo"></div>
 		</section>
 
 		<section class="cards">
-			<article class="card span-8" style="--stagger: 1;">
+			<article class="card span-6" style="--stagger: 1;">
 				<h2>Programma</h2>
-				<p class="small muted">Aggiorna gli orari quando vuoi, il sito si aggiorna subito per tutti.</p>
+				<!--<p class="small muted">Aggiorna gli orari quando vuoi, il sito si aggiorna subito per tutti.</p>-->
 				<ul id="timelineFull" class="timeline">
 					<li>
-						<time>15:30</time>
+						<time>11:00</time>
 						<div>Cerimonia</div>
 					</li>
 					<li>
-						<time>17:30</time>
+						<time>12:45</time>
 						<div>Aperitivo di benvenuto</div>
 					</li>
 					<li>
-						<time>20:00</time>
-						<div>Cena e festa</div>
-					</li>
-					<li>
-						<time>23:00</time>
+						<time>17:00</time>
 						<div>Taglio torta</div>
 					</li>
 				</ul>
 				<ul id="timelineCake" class="timeline hidden">
 					<li>
-						<time>22:30</time>
+						<time>16:30</time>
 						<div>Arrivo ospiti per la torta</div>
 					</li>
 					<li>
-						<time>23:00</time>
+						<time>17:00</time>
 						<div>Taglio torta e brindisi</div>
 					</li>
 				</ul>
 			</article>
 
-			<article class="card span-4" style="--stagger: 2;">
+			<article class="card span-6" style="--stagger: 2;">
 				<h2>Conferma Presenza</h2>
-				<p class="small">Ti chiediamo una conferma entro il <strong>31 agosto 2026</strong>.</p>
+				<p class="small">Ti chiediamo una conferma entro il <strong>15 settembre 2026</strong>.</p>
 				<div class="actions">
-					<a class="btn primary" href="https://wa.me/393491234567?text=Ciao%2C%20confermo%20la%20mia%20presenza%20al%20matrimonio%20del%202%20ottobre%202026!" target="_blank" rel="noopener">Conferma su WhatsApp</a>
+					<a class="btn primary" href="https://wa.me/3408711655?text=Ciao%2C%20confermo%20la%20mia%20presenza%20al%20matrimonio%20del%202%20ottobre%202026!" target="_blank" rel="noopener">Conferma su WhatsApp</a>
 				</div>
-				<p class="notice">Puoi aggiungere qui una nota per allergie, intolleranze o esigenze speciali.</p>
+				<p class="notice">Puoi aggiungere qui una nota per comunicare allergie, intolleranze o esigenze speciali.</p>
 			</article>
 
-			<article class="card span-6" style="--stagger: 3;">
+			<article class="card span-12" style="--stagger: 3;">
 				<h2>Luoghi</h2>
-				<p class="small muted" id="placesText">Cerimonia e ricevimento.</p>
+				<!--<p class="small muted" id="placesText">Cerimonia e ricevimento.</p>-->
 				<div id="fullPlaces">
 					<h3>Cerimonia - ore 11:00</h3>
-					<p>Villa Oliva, via Volta 16 - Cassano Magnago</p>
+					<p>Presso il Santuario Madonna della Selva - Fagnano Olona</p>
 					<div class="actions">
-						<a class="btn ghost" href="https://maps.google.com/?q=Villa+Oliva+via+Volta+16+21012+Cassano+Magnago" target="_blank" rel="noopener">Apri cerimonia su Maps</a>
+						<a class="btn ghost" href="https://maps.app.goo.gl/wicNMtT8yXJ2uWAs5?g_st=ic" target="_blank" rel="noopener">Apri cerimonia su Maps</a>
 					</div>
 					<h3 style="margin-top: 0.8rem;">Ricevimento - ore 12:00</h3>
 					<p>Il Podere di Binse, via Balzarine 204 Fagnano Olona</p>
@@ -523,7 +520,7 @@
 				</div>
 			</article>
 
-			<article class="card span-6" style="--stagger: 4;">
+			<!--<article class="card span-6" style="--stagger: 4;">
 				<h2>Informazioni Utili</h2>
 				<p class="small">Parcheggio: disponibile in loco.</p>
 				<p class="small">Bambini: benvenuti.</p>
@@ -532,11 +529,21 @@
 					Personalizza questa sezione con tutte le indicazioni pratiche per gli ospiti.
 				</p>
 			</article>
+			-->
 
-			<article class="card span-6" style="--stagger: 5;">
-				<h2>Viaggio Di Nozze</h2>
-				<p class="small">La nostra luna di miele inizierà pochi giorni dopo il matrimonio.</p>
-				<p class="small">Un piccolo assaggio della meta che abbiamo scelto per iniziare la nostra avventura insieme.</p>
+			<article class="card span-12" style="--stagger: 5;">
+				<h2>I nostri sogni nel cassetto</h2>
+				<p class="small">a nostra casa è già pronta e accogliente, e le nostre giornate sono piene di tutto ciò che serve. 
+				Quest'anno il destino ci ha fatto il regalo più grande: l'attesa del nostro primo bebè.<br />
+				Per questo motivo, abbiamo deciso di non fare una lista nozze tradizionale o un viaggio di nozze immediato.<br /><br />
+				Il nostro desiderio più grande è costruire una base solida per il domani della nostra famiglia che cresce.<br /><br />
+				Se volete aiutarci a realizzare i nostri sogni futuri e a dare il benvenuto alla nuova vita in arrivo, potete farlo qui.<br /><br />
+				Ogni vostro pensiero sarà il carburante per il nostro domani.
+				</p>
+				
+				<div class="iban-box">IBAN: IT24U0538750110000003926514</div>
+				<p class="small" style="margin-top: 0.6rem;">Intestato a: Macchi Martina e Girola Riccardo</p>				
+				<!--<p class="small">Un piccolo assaggio della meta che abbiamo scelto per iniziare la nostra avventura insieme.</p>
 				<div class="carousel" id="honeymoonCarousel" aria-label="Carousel foto viaggio di nozze">
 					<div class="carousel-track" id="honeymoonTrack">
 						<div class="carousel-slide" style='background-image: url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80")'></div>
@@ -552,14 +559,15 @@
 					</div>
 				</div>
 				<p class="notice">Possiamo cambiare queste 3 foto con immagini reali del vostro viaggio appena le hai.</p>
+				-->
 			</article>
 
-			<article class="card span-6" style="--stagger: 6;">
+			<!--<article class="card span-6" style="--stagger: 6;">
 				<h2>Lista Viaggio</h2>
 				<p class="small">Se desideri regalarci un contributo per il nostro viaggio di nozze:</p>
 				<div class="iban-box">IBAN: IT24U0538750110000003926514</div>
-				<p class="small" style="margin-top: 0.6rem;">Intestato a: MARTINA RICCARDO</p>
-			</article>
+				<p class="small" style="margin-top: 0.6rem;">Intestato a: Macchi Martina e Girola Riccardo</p>
+			</article>-->
 		</section>
 
 		<p class="footer">Con amore, Martina e Riccardo</p>
