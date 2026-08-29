@@ -478,7 +478,7 @@
 				<ul id="timelineCake" class="timeline hidden">
 					<li>
 						<time>16:30</time>
-						<div>Arrivo ospiti per la torta</div>
+						<div>Arrivo di benvenuto</div>
 					</li>
 					<li>
 						<time>17:00</time>
@@ -505,14 +505,15 @@
 					<div class="actions">
 						<a class="btn ghost" href="https://maps.app.goo.gl/wicNMtT8yXJ2uWAs5?g_st=ic" target="_blank" rel="noopener">Apri cerimonia su Maps</a>
 					</div>
-					<h3 style="margin-top: 0.8rem;">Ricevimento - ore 12:00</h3>
+					<h3 style="margin-top: 0.8rem;">Ricevimento - ore 12:45</h3>
 					<p>Il Podere di Binse, via Balzarine 204 Fagnano Olona</p>
 					<div class="actions">
 						<a class="btn ghost" href="https://maps.google.com/?q=Il+Podere+di+Binse+via+Balzarine+204+Fagnano+Olona" target="_blank" rel="noopener">Apri ricevimento su Maps</a>
 					</div>
 				</div>
 				<div id="cakePlace" class="hidden">
-					<h3>Taglio Torta - ore 17.30</h3>
+					<h3>Aperitivo di benvenuto - ore 16.30</h3>
+					<h3>Taglio Torta - ore 17.00</h3>
 					<p>Il Podere di Binse, via Balzarine 204 Fagnano Olona</p>
 					<div class="actions">
 						<a class="btn ghost" href="https://maps.google.com/?q=Il+Podere+di+Binse+via+Balzarine+204+Fagnano+Olona" target="_blank" rel="noopener">Apri location su Maps</a>
@@ -533,7 +534,7 @@
 
 			<article class="card span-12" style="--stagger: 5;">
 				<h2>I nostri sogni nel cassetto</h2>
-				<p class="small">a nostra casa è già pronta e accogliente, e le nostre giornate sono piene di tutto ciò che serve. 
+				<p class="small">La nostra casa è già pronta e accogliente, e le nostre giornate sono piene di tutto ciò che serve. 
 				Quest'anno il destino ci ha fatto il regalo più grande: l'attesa del nostro primo bebè.<br />
 				Per questo motivo, abbiamo deciso di non fare una lista nozze tradizionale o un viaggio di nozze immediato.<br /><br />
 				Il nostro desiderio più grande è costruire una base solida per il domani della nostra famiglia che cresce.<br /><br />
@@ -574,11 +575,12 @@
 	</main>
 
 	<script>
+	
 		(function () {
 			var params = new URLSearchParams(window.location.search);
 			var inviteType = (params.get("invito") || "completo").toLowerCase();
 			var isCake = inviteType === "torta";
-
+		
 			var timelineFull = document.getElementById("timelineFull");
 			var timelineCake = document.getElementById("timelineCake");
 			var placesText = document.getElementById("placesText");
@@ -624,7 +626,7 @@
 
 			var slideIndex = 0;
 			var totalSlides = 3;
-
+/*
 			function renderCarousel() {
 				honeymoonTrack.style.transform = "translateX(-" + slideIndex * 100 + "%)";
 				for (var i = 0; i < carouselDots.length; i++) {
@@ -660,6 +662,7 @@
 			setInterval(function () {
 				goToSlide(slideIndex + 1);
 			}, 4500);
+*/
 
 			if (isCake) {
 				timelineFull.classList.add("hidden");
